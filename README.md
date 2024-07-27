@@ -1,2 +1,2 @@
 # Ground-Beef
-A game about abducting cows
+A game about alien abducting cows trying to survive
