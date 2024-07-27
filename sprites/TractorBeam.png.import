@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dghajy8ios7ia"
-path="res://.godot/imported/Cow.png-5dd8b1c9aa5cea8c644efa2362705430.ctex"
+uid="uid://dnd34e6lvytdr"
+path="res://.godot/imported/TractorBeam.png-26107bca51eaa9006caa67e31167272c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Cow.png"
-dest_files=["res://.godot/imported/Cow.png-5dd8b1c9aa5cea8c644efa2362705430.ctex"]
+source_file="res://sprites/TractorBeam.png"
+dest_files=["res://.godot/imported/TractorBeam.png-26107bca51eaa9006caa67e31167272c.ctex"]
 
 [params]
 
