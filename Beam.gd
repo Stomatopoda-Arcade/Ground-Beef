@@ -2,6 +2,7 @@ extends Area2D
 
 enum BEAM_TYPE {OFF,TRACTOR,DEATH}
 var beam_locked = false
+var active_beam = BEAM_TYPE.OFF
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,17 +18,20 @@ func set_beam(type):
 	if !beam_locked:
 		if type == BEAM_TYPE.TRACTOR:
 			beam_locked = true
+			active_beam = BEAM_TYPE.TRACTOR
 			$TractorBeam.visible = true
 			$DeathBeam.visible = false
 			$CollisionShape2D.disabled = false
 			$DisplayTimer.start()
 		elif type == BEAM_TYPE.DEATH:
 			beam_locked = true
+			active_beam= BEAM_TYPE.DEATH
 			$DeathBeam.visible = true
 			$TractorBeam.visible = false
 			$CollisionShape2D.disabled = false
 			$DisplayTimer.start()
 	if type == BEAM_TYPE.OFF:
+		active_beam = BEAM_TYPE.OFF
 		$DeathBeam.visible = false
 		$TractorBeam.visible = false
 		$CollisionShape2D.disabled = true
