@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk3pr2daqejmj"]
+
+[ext_resource type="PackedScene" uid="uid://ccd6m3yl13q3p" path="res://ground.tscn" id="1_xe7lq"]
+[ext_resource type="PackedScene" uid="uid://c5gkfnhftomo" path="res://cow.tscn" id="2_bhba0"]
+[ext_resource type="PackedScene" uid="uid://l0esk30pv4e0" path="res://player_character.tscn" id="3_3wr8i"]
+[ext_resource type="PackedScene" uid="uid://g2j4t4pkqcu2" path="res://under_ground.tscn" id="4_sho2d"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Ground" parent="." instance=ExtResource("1_xe7lq")]
+position = Vector2(123, 305)
+
+[node name="Cow" parent="." instance=ExtResource("2_bhba0")]
+position = Vector2(-85, 283)
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("3_3wr8i")]
+position = Vector2(178, 4)
+
+[node name="UnderGround" parent="." instance=ExtResource("4_sho2d")]
+position = Vector2(123, 349)
+
+[node name="Cow2" parent="." instance=ExtResource("2_bhba0")]
+position = Vector2(21, 282)
+
+[node name="Cow3" parent="." instance=ExtResource("2_bhba0")]
+position = Vector2(-31, 283)
