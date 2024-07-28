@@ -7,6 +7,8 @@ const JUMP_VELOCITY = -400.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _process(delta):
+	check_beam()
 
 func _physics_process(delta):
 
@@ -32,3 +34,13 @@ func _physics_process(delta):
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
 	move_and_slide()
+	
+func check_beam():
+	if Input.is_action_pressed("ui_death_beam"):
+		$Beam.set_beam($Beam.BEAM_TYPE.DEATH)
+	elif Input.is_action_pressed("ui_tractor_beam"):
+		$Beam.set_beam($Beam.BEAM_TYPE.TRACTOR)
+	else: 
+		$Beam.set_beam($Beam.BEAM_TYPE.OFF)
+		
+
