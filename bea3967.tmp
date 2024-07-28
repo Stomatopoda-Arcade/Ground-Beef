@@ -27,12 +27,7 @@ position = Vector2(0, 540)
 shape = SubResource("RectangleShape2D_veka2")
 disabled = true
 
-[node name="DisplayTimer" type="Timer" parent="."]
-wait_time = 0.25
+[node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="RechargeTimer" type="Timer" parent="."]
-one_shot = true
-
-[connection signal="timeout" from="DisplayTimer" to="." method="_on_display_timer_timeout"]
-[connection signal="timeout" from="RechargeTimer" to="." method="_on_recharge_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

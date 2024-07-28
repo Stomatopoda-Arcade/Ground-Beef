@@ -36,11 +36,9 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func check_beam():
-	if Input.is_action_pressed("ui_death_beam"):
+	if Input.is_action_just_pressed("ui_death_beam"):
 		$Beam.set_beam($Beam.BEAM_TYPE.DEATH)
-	elif Input.is_action_pressed("ui_tractor_beam"):
+	elif Input.is_action_just_pressed("ui_tractor_beam"):
 		$Beam.set_beam($Beam.BEAM_TYPE.TRACTOR)
-	else: 
-		$Beam.set_beam($Beam.BEAM_TYPE.OFF)
 		
 
