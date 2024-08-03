@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://ig8otq1ilpd0"]
+
+[ext_resource type="Script" path="res://Tank.gd" id="1_7w7jl"]
+[ext_resource type="Texture2D" uid="uid://dy8si7wu0kieg" path="res://sprites/Tank-45.png" id="2_7vxbb"]
+[ext_resource type="Texture2D" uid="uid://fr5svms7dcu7" path="res://sprites/Tank-90.png" id="3_rc03h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqa1b"]
+size = Vector2(33, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ekmg"]
+size = Vector2(20, 14)
+
+[node name="Tank" type="StaticBody2D" groups=["destroyable", "tank"]]
+script = ExtResource("1_7w7jl")
+starting_difficulty = 2
+
+[node name="Tank45" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_7vxbb")
+
+[node name="Tank90" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(2, 2)
+texture = ExtResource("3_rc03h")
+
+[node name="CollisionBottom" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 6.5)
+shape = SubResource("RectangleShape2D_kqa1b")
+
+[node name="CollisionTop" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_1ekmg")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
