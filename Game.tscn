@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cl47tmv4n07ds"]
+[gd_scene load_steps=8 format=3 uid="uid://cl47tmv4n07ds"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_7f8eh"]
 [ext_resource type="PackedScene" uid="uid://ccd6m3yl13q3p" path="res://ground.tscn" id="2_py3jo"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://l0esk30pv4e0" path="res://player_character.tscn" id="4_0ayap"]
 [ext_resource type="PackedScene" uid="uid://c1hfb0b85xe1e" path="res://underground.tscn" id="5_u8w03"]
 [ext_resource type="PackedScene" uid="uid://ig8otq1ilpd0" path="res://tank.tscn" id="6_tmhgm"]
+[ext_resource type="PackedScene" uid="uid://yvvd7ldvrsb2" path="res://jet.tscn" id="7_tb6x7"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7f8eh")
@@ -34,3 +35,6 @@ position = Vector2(-185, 279)
 [node name="Tank2" parent="." instance=ExtResource("6_tmhgm")]
 position = Vector2(-279, 280)
 starting_facing = 1
+
+[node name="Jet" parent="." instance=ExtResource("7_tb6x7")]
+position = Vector2(-311, 69)
