@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://q4miwk28xnvi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2plya"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_7b0rd"]
+font_size = 30
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreLabel" type="Label" parent="ScoreContainer"]
+layout_mode = 2
+text = "Score: "
+label_settings = SubResource("LabelSettings_2plya")
+
+[node name="ScoreValue" type="Label" parent="ScoreContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_7b0rd")

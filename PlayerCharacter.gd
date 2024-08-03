@@ -41,4 +41,7 @@ func check_beam():
 	elif Input.is_action_just_pressed("ui_tractor_beam"):
 		$Beam.set_beam($Beam.BEAM_TYPE.TRACTOR)
 		
+func set_score(value):
+	$Camera2D/HUD/ScoreContainer/ScoreValue.text = str(value)
+		
 
