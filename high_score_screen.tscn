@@ -1,0 +1,127 @@
+[gd_scene load_steps=4 format=3 uid="uid://1o131e415yjy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ell1i"]
+font_size = 45
+
+[sub_resource type="LabelSettings" id="LabelSettings_g5mrs"]
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ce6v"]
+font_size = 35
+
+[node name="HighScoreScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 648.0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 25
+
+[node name="Title" type="Label" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "High Scores"
+label_settings = SubResource("LabelSettings_ell1i")
+horizontal_alignment = 1
+
+[node name="HighScoresContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Initials" type="VBoxContainer" parent="VBoxContainer/HighScoresContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Initial1" type="Label" parent="VBoxContainer/HighScoresContainer/Initials"]
+layout_mode = 2
+text = "LOH"
+label_settings = SubResource("LabelSettings_g5mrs")
+horizontal_alignment = 2
+
+[node name="Initial2" type="Label" parent="VBoxContainer/HighScoresContainer/Initials"]
+layout_mode = 2
+text = "LOH"
+label_settings = SubResource("LabelSettings_g5mrs")
+horizontal_alignment = 2
+
+[node name="Initial3" type="Label" parent="VBoxContainer/HighScoresContainer/Initials"]
+layout_mode = 2
+text = "LOH"
+label_settings = SubResource("LabelSettings_g5mrs")
+horizontal_alignment = 2
+
+[node name="Initial4" type="Label" parent="VBoxContainer/HighScoresContainer/Initials"]
+layout_mode = 2
+text = "LOH"
+label_settings = SubResource("LabelSettings_g5mrs")
+horizontal_alignment = 2
+
+[node name="Initial5" type="Label" parent="VBoxContainer/HighScoresContainer/Initials"]
+layout_mode = 2
+text = "LOH"
+label_settings = SubResource("LabelSettings_g5mrs")
+horizontal_alignment = 2
+
+[node name="Initial6" type="Label" parent="VBoxContainer/HighScoresContainer/Initials"]
+layout_mode = 2
+text = "LOH"
+label_settings = SubResource("LabelSettings_g5mrs")
+horizontal_alignment = 2
+
+[node name="Initial7" type="Label" parent="VBoxContainer/HighScoresContainer/Initials"]
+layout_mode = 2
+text = "LOH"
+label_settings = SubResource("LabelSettings_g5mrs")
+horizontal_alignment = 2
+
+[node name="Spacer" type="MarginContainer" parent="VBoxContainer/HighScoresContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="Score" type="VBoxContainer" parent="VBoxContainer/HighScoresContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Score1" type="Label" parent="VBoxContainer/HighScoresContainer/Score"]
+layout_mode = 2
+text = "7500"
+label_settings = SubResource("LabelSettings_3ce6v")
+
+[node name="Score2" type="Label" parent="VBoxContainer/HighScoresContainer/Score"]
+layout_mode = 2
+text = "7500"
+label_settings = SubResource("LabelSettings_3ce6v")
+
+[node name="Score3" type="Label" parent="VBoxContainer/HighScoresContainer/Score"]
+layout_mode = 2
+text = "7500"
+label_settings = SubResource("LabelSettings_3ce6v")
+
+[node name="Score4" type="Label" parent="VBoxContainer/HighScoresContainer/Score"]
+layout_mode = 2
+text = "7500"
+label_settings = SubResource("LabelSettings_3ce6v")
+
+[node name="Score5" type="Label" parent="VBoxContainer/HighScoresContainer/Score"]
+layout_mode = 2
+text = "7500"
+label_settings = SubResource("LabelSettings_3ce6v")
+
+[node name="Score6" type="Label" parent="VBoxContainer/HighScoresContainer/Score"]
+layout_mode = 2
+text = "7500"
+label_settings = SubResource("LabelSettings_3ce6v")
+
+[node name="Score7" type="Label" parent="VBoxContainer/HighScoresContainer/Score"]
+layout_mode = 2
+text = "7500"
+label_settings = SubResource("LabelSettings_3ce6v")
