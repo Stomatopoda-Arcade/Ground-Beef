@@ -2,6 +2,10 @@ extends Node2D
 
 
 var score = 0
+var abducted_score = 100
+var jet_score = 50
+var tank_score = 25
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$PlayerCharacter/Beam.object_abducted.connect(handle_abducted)
@@ -12,11 +16,15 @@ func _ready():
 func _process(delta):
 	pass
 
-	
 func handle_abducted(groups):
-	print(groups)
-	score = score + 1
+	score = score + abducted_score
 	$PlayerCharacter.set_score(score)
 	
 func handle_destroyed(groups):
-	print(groups)
+	if groups.has("cow"):
+		score = score - abducted_score
+	elif groups.has("tank"):
+		score = score + tank_score
+	elif groups.has("jet"):
+		score = score + jet_score
+	$PlayerCharacter.set_score(score)

@@ -42,6 +42,6 @@ func check_beam():
 		$Beam.set_beam($Beam.BEAM_TYPE.TRACTOR)
 		
 func set_score(value):
-	$Camera2D/ScoreValue.text = str(value)
+	$Camera2D/HUD/ScoreContainer/ScoreValue.text = str(value)
 		
 

@@ -1,17 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://l0esk30pv4e0"]
+[gd_scene load_steps=6 format=3 uid="uid://l0esk30pv4e0"]
 
 [ext_resource type="Script" path="res://PlayerCharacter.gd" id="1_to5h2"]
 [ext_resource type="Texture2D" uid="uid://kunac06ktryy" path="res://sprites/Alien.png" id="2_xc5fr"]
 [ext_resource type="PackedScene" uid="uid://b042l2o7i5kic" path="res://beam.tscn" id="3_qrac7"]
+[ext_resource type="PackedScene" uid="uid://q4miwk28xnvi" path="res://hud.tscn" id="4_aql4b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_drmgs"]
 size = Vector2(48, 33)
-
-[sub_resource type="LabelSettings" id="LabelSettings_g8m53"]
-line_spacing = 30.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_itnud"]
-line_spacing = 30.0
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
 script = ExtResource("1_to5h2")
@@ -29,18 +24,8 @@ shape = SubResource("RectangleShape2D_drmgs")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="ScoreLabel" type="Label" parent="Camera2D"]
-offset_left = -575.0
-offset_top = -324.0
-offset_right = -532.0
-offset_bottom = -301.0
-text = "Score:"
-label_settings = SubResource("LabelSettings_g8m53")
-
-[node name="ScoreValue" type="Label" parent="Camera2D"]
-offset_left = -520.0
-offset_top = -323.0
-offset_right = -480.0
-offset_bottom = -300.0
-text = "0"
-label_settings = SubResource("LabelSettings_itnud")
+[node name="HUD" parent="Camera2D" instance=ExtResource("4_aql4b")]
+offset_left = -569.0
+offset_top = -328.0
+offset_right = -569.0
+offset_bottom = -328.0
