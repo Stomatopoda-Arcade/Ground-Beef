@@ -46,6 +46,10 @@ func _on_game_timer_timeout():
 		time_remaining -= 1
 		$PlayerCharacter.set_timer(time_remaining)
 
+		
+		
+
+
 func _on_screen_wrap_body_exited(body):
 	var left_edge = $ScreenWrap.position.x - ($ScreenWrap/CollisionShape2D.shape.get_rect().size.x/2)
 	var right_edge = $ScreenWrap.position.x + ($ScreenWrap/CollisionShape2D.shape.get_rect().size.x/2)
@@ -54,5 +58,3 @@ func _on_screen_wrap_body_exited(body):
 		body.position = Vector2(right_edge-buffer,body.position.y)
 	else:
 		body.position = Vector2(left_edge+buffer,body.position.y)
-		
-		
