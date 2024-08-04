@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://q4miwk28xnvi"]
+[gd_scene load_steps=5 format=3 uid="uid://q4miwk28xnvi"]
 
 [ext_resource type="Texture2D" uid="uid://kunac06ktryy" path="res://sprites/Alien.png" id="1_1b8ww"]
 
@@ -6,6 +6,9 @@
 font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_7b0rd"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_wuodp"]
 font_size = 30
 
 [node name="HUD" type="Control"]
@@ -18,39 +21,54 @@ grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_right = 133.0
+offset_right = 1149.0
 offset_bottom = 91.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="LifeContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="LeftContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 3
 
-[node name="Life2" type="TextureRect" parent="MarginContainer/VBoxContainer/LifeContainer"]
-layout_mode = 2
-texture = ExtResource("1_1b8ww")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="Life1" type="TextureRect" parent="MarginContainer/VBoxContainer/LifeContainer"]
-layout_mode = 2
-texture = ExtResource("1_1b8ww")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="ScoreContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ScoreContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/LeftContainer"]
 layout_mode = 2
 
-[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/ScoreContainer"]
+[node name="ScoreLabel" type="Label" parent="MarginContainer/HBoxContainer/LeftContainer/ScoreContainer"]
 layout_mode = 2
 text = "Score: "
 label_settings = SubResource("LabelSettings_2plya")
 
-[node name="ScoreValue" type="Label" parent="MarginContainer/VBoxContainer/ScoreContainer"]
+[node name="ScoreValue" type="Label" parent="MarginContainer/HBoxContainer/LeftContainer/ScoreContainer"]
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_7b0rd")
+
+[node name="LifeContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/LeftContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Life2" type="TextureRect" parent="MarginContainer/HBoxContainer/LeftContainer/LifeContainer"]
+layout_mode = 2
+texture = ExtResource("1_1b8ww")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Life1" type="TextureRect" parent="MarginContainer/HBoxContainer/LeftContainer/LifeContainer"]
+layout_mode = 2
+texture = ExtResource("1_1b8ww")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="RightContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TimerLabel" type="Label" parent="MarginContainer/HBoxContainer/RightContainer"]
+layout_mode = 2
+text = "180"
+label_settings = SubResource("LabelSettings_wuodp")
+horizontal_alignment = 2

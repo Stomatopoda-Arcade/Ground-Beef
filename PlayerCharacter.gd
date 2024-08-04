@@ -49,18 +49,22 @@ func check_beam():
 		$Beam.set_beam($Beam.BEAM_TYPE.TRACTOR)
 		
 func set_score(value):
-	$Camera2D/HUD/MarginContainer/VBoxContainer/ScoreContainer/ScoreValue.text = str(value)
+	$Camera2D/HUD/MarginContainer/HBoxContainer/LeftContainer/ScoreContainer/ScoreValue.text = str(value)
 
 func set_lives(value):
 	if value == 3:
-		$Camera2D/HUD/MarginContainer/VBoxContainer/LifeContainer/Life1.visible = true
-		$Camera2D/HUD/MarginContainer/VBoxContainer/LifeContainer/Life2.visible = true
+		$Camera2D/HUD/MarginContainer/HBoxContainer/LeftContainer/LifeContainer/Life1.visible = true
+		$CCamera2D/HUD/MarginContainer/HBoxContainer/LeftContainer/LifeContainer/Life2.visible = true
 	if value == 2:
-		$Camera2D/HUD/MarginContainer/VBoxContainer/LifeContainer/Life1.visible = true
-		$Camera2D/HUD/MarginContainer/VBoxContainer/LifeContainer/Life2.visible = false
+		$Camera2D/HUD/MarginContainer/HBoxContainer/LeftContainer/LifeContainer/Life1.visible = true
+		$Camera2D/HUD/MarginContainer/HBoxContainer/LeftContainer/LifeContainer/Life2.visible = false
 	if value == 1:
-		$Camera2D/HUD/MarginContainer/VBoxContainer/LifeContainer/Life1.visible = false
-		$Camera2D/HUD/MarginContainer/VBoxContainer/LifeContainer/Life2.visible = false
+		$Camera2D/HUD/MarginContainer/HBoxContainer/LeftContainer/LifeContainer/Life1.visible = false
+		$Camera2D/HUD/MarginContainer/HBoxContainer/LeftContainer/LifeContainer/Life2.visible = false
+		
+
+func set_timer(value):
+	$Camera2D/HUD/MarginContainer/HBoxContainer/RightContainer/TimerLabel.text = str(value)
 
 func check_collision():
 	for i in get_slide_collision_count():
