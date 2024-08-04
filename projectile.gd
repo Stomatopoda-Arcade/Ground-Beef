@@ -1,7 +1,7 @@
-extends StaticBody2D
+extends CharacterBody2D
 
 @export var angle = 0.0
-@export var velocity = 1
+@export var projectile_velocity = 1
 var direction = Vector2(1,0)
 
 # Called when the node enters the scene tree for the first time.
@@ -13,6 +13,6 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	position += direction*velocity*delta
+func _physics_process(delta):
+	position += direction*projectile_velocity*delta
 	
