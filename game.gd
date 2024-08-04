@@ -3,15 +3,17 @@ extends Node2D
 
 var score = 0
 var lives = 3
-var level = 1
-var abducted_score = 100
-var jet_score = 50
-var tank_score = 25
+@export var level = 1
+@export var abducted_score = 100
+@export var jet_score = 50
+@export var tank_score = 25
+@export var time_remaining = 180
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$PlayerCharacter/Beam.object_abducted.connect(handle_abducted)
 	$PlayerCharacter/Beam.object_destroyed.connect(handle_destroyed)
+	$PlayerCharacter.set_timer(time_remaining)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,3 +40,8 @@ func _on_player_character_damaged(collider):
 		$PlayerCharacter.set_lives(lives)
 		$PlayerCharacter.disable_player(true)
 	
+
+func _on_game_timer_timeout():
+	if time_remaining > 0:
+		time_remaining -= 1
+		$PlayerCharacter.set_timer(time_remaining)

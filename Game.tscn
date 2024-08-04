@@ -42,4 +42,8 @@ starting_difficulty = 0
 position = Vector2(-311, 69)
 starting_difficulty = 0
 
+[node name="GameTimer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="damaged" from="PlayerCharacter" to="." method="_on_player_character_damaged"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
