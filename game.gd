@@ -38,3 +38,15 @@ func _on_player_character_damaged(collider):
 		$PlayerCharacter.set_lives(lives)
 		$PlayerCharacter.disable_player(true)
 	
+
+
+func _on_screen_wrap_body_exited(body):
+	var left_edge = $ScreenWrap.position.x - ($ScreenWrap/CollisionShape2D.shape.get_rect().size.x/2)
+	var right_edge = $ScreenWrap.position.x + ($ScreenWrap/CollisionShape2D.shape.get_rect().size.x/2)
+	var buffer = 150
+	if sign(body.position.x) == -1:
+		body.position = Vector2(right_edge-buffer,body.position.y)
+	else:
+		body.position = Vector2(left_edge+buffer,body.position.y)
+		
+		
