@@ -41,7 +41,7 @@ func _process(delta):
 
 func _on_timer_timeout():
 	var projectile_instance = ProjectileResource.instantiate()
-	projectile_instance.velocity = projectile_velocity
+	projectile_instance.projectile_velocity = projectile_velocity
 	projectile_instance.angle = projectile_angle
 	self.add_child(projectile_instance)
 	self.move_child(projectile_instance,0)
