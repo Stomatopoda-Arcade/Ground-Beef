@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://yvvd7ldvrsb2"]
+[gd_scene load_steps=4 format=3 uid="uid://cnmqwu6p52o14"]
 
 [ext_resource type="Script" path="res://Jet.gd" id="1_mr4i3"]
 [ext_resource type="Texture2D" uid="uid://dtmsfc2ucxb20" path="res://sprites/FighterJet.png" id="2_a2awc"]
@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jka5l"]
 size = Vector2(40, 25.5)
 
-[node name="Jet" type="StaticBody2D" groups=["destroyable", "jet"]]
+[node name="Jet" type="StaticBody2D" groups=["destroyable", "hazard", "jet"]]
 script = ExtResource("1_mr4i3")
 starting_difficulty = 2
 
@@ -19,6 +19,5 @@ position = Vector2(0, 5.25)
 shape = SubResource("RectangleShape2D_jka5l")
 
 [node name="Timer" type="Timer" parent="."]
-autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

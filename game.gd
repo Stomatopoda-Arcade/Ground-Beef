@@ -2,6 +2,8 @@ extends Node2D
 
 
 var score = 0
+var lives = 3
+var level = 1
 var abducted_score = 100
 var jet_score = 50
 var tank_score = 25
@@ -28,3 +30,11 @@ func handle_destroyed(groups):
 	elif groups.has("jet"):
 		score = score + jet_score
 	$PlayerCharacter.set_score(score)
+
+
+func _on_player_character_damaged(collider):
+	if !$PlayerCharacter.player_disabled:
+		lives -= 1
+		$PlayerCharacter.set_lives(lives)
+		$PlayerCharacter.disable_player(true)
+	

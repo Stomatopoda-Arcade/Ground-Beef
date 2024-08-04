@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ig8otq1ilpd0"]
+[gd_scene load_steps=6 format=3 uid="uid://dscavk7m7uj70"]
 
 [ext_resource type="Script" path="res://Tank.gd" id="1_7w7jl"]
 [ext_resource type="Texture2D" uid="uid://dy8si7wu0kieg" path="res://sprites/Tank-45.png" id="2_7vxbb"]
@@ -10,7 +10,7 @@ size = Vector2(33, 19)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ekmg"]
 size = Vector2(20, 14)
 
-[node name="Tank" type="StaticBody2D" groups=["destroyable", "tank"]]
+[node name="Tank" type="StaticBody2D" groups=["destroyable", "hazard", "tank"]]
 script = ExtResource("1_7w7jl")
 starting_difficulty = 2
 
