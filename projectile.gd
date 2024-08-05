@@ -14,5 +14,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	position += direction*projectile_velocity*delta
+	var collision = move_and_collide(direction*projectile_velocity*delta)
+	check_collision(collision)
+
+func check_collision(collision):
+	if collision and collision.get_collider().is_in_group("player"):
+		collision.get_collider().damage()
+		queue_free()
+	elif collision and collision.get_collider().is_in_group("boundry"):
+		queue_free()
 	

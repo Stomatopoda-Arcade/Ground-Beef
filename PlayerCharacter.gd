@@ -2,11 +2,10 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
 
 var player_disabled = false
 
-signal damaged(collider)
+signal damaged
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -20,27 +19,15 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	if !player_disabled:
-		var x_direction = Input.get_axis("ui_left", "ui_right")
-		var y_direction = Input.get_axis("ui_up", "ui_down")
-	
-		if x_direction == -1: 
+		var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		if input_dir.x == -1: 
 			$Sprite2D.flip_h=false
-		elif x_direction == 1:
+		elif input_dir.x == 1:
 			$Sprite2D.flip_h=true
-			
+		velocity = input_dir * SPEED
 		
-		if x_direction:
-			velocity.x = x_direction * SPEED
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-			
-		if y_direction:
-			velocity.y = y_direction * SPEED
-		else:
-			velocity.y = move_toward(velocity.y, 0, SPEED)
-			
-		move_and_slide()
-		check_collision()
+		var collision = move_and_collide(velocity*delta)
+		check_collision(collision)
 	
 func check_beam():
 	if Input.is_action_just_pressed("ui_death_beam"):
@@ -66,13 +53,12 @@ func set_lives(value):
 func set_timer(value):
 	$Camera2D/HUD/MarginContainer/HBoxContainer/RightContainer/TimerLabel.text = str(value)
 
-func check_collision():
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		var collider = collision.get_collider()
-		
-		if collider.is_in_group("hazard"):
-			damaged.emit(collider)
+func check_collision(collision):
+	if collision and collision.get_collider().is_in_group("hazard"):
+		damaged.emit()
+
+func damage():
+	damaged.emit()
 
 func disable_player(disabled):
 	player_disabled = disabled
