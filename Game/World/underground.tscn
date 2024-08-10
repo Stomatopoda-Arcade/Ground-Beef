@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c1hfb0b85xe1e"]
 
-[ext_resource type="Texture2D" uid="uid://d4kovuhh5hxtr" path="res://sprites/Ground.png" id="1_hhnlm"]
-[ext_resource type="Texture2D" uid="uid://uvo7uaqdvei1" path="res://sprites/GroundBottom.png" id="2_a8iw8"]
+[ext_resource type="Texture2D" uid="uid://d4kovuhh5hxtr" path="res://Sprites/Ground.png" id="1_hhnlm"]
+[ext_resource type="Texture2D" uid="uid://uvo7uaqdvei1" path="res://Sprites/GroundBottom.png" id="2_a8iw8"]
 
 [node name="Underground" type="Node2D"]
 

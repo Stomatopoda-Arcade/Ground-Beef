@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dscavk7m7uj70"]
 
-[ext_resource type="Script" path="res://Tank.gd" id="1_7w7jl"]
-[ext_resource type="Texture2D" uid="uid://dy8si7wu0kieg" path="res://sprites/Tank-45.png" id="2_7vxbb"]
-[ext_resource type="Texture2D" uid="uid://fr5svms7dcu7" path="res://sprites/Tank-90.png" id="3_rc03h"]
+[ext_resource type="Script" path="res://Game/Enemies/Tank.gd" id="1_7w7jl"]
+[ext_resource type="Texture2D" uid="uid://dy8si7wu0kieg" path="res://Sprites/Tank-45.png" id="2_7vxbb"]
+[ext_resource type="Texture2D" uid="uid://fr5svms7dcu7" path="res://Sprites/Tank-90.png" id="3_rc03h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqa1b"]
 size = Vector2(33, 19)

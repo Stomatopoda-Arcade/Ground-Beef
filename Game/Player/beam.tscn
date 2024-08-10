@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://b042l2o7i5kic"]
 
-[ext_resource type="Script" path="res://Beam.gd" id="1_3e1sp"]
-[ext_resource type="Texture2D" uid="uid://dnd34e6lvytdr" path="res://sprites/TractorBeam.png" id="2_88qho"]
-[ext_resource type="Texture2D" uid="uid://dyo86eqqylm70" path="res://sprites/DeathBeam.png" id="3_du5mg"]
+[ext_resource type="Script" path="res://Game/Player/Beam.gd" id="1_3e1sp"]
+[ext_resource type="Texture2D" uid="uid://dnd34e6lvytdr" path="res://Sprites/TractorBeam.png" id="2_88qho"]
+[ext_resource type="Texture2D" uid="uid://dyo86eqqylm70" path="res://Sprites/DeathBeam.png" id="3_du5mg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_veka2"]
 size = Vector2(20, 1080)

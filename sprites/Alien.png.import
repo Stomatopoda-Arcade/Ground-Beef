@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://kunac06ktryy"
-path="res://.godot/imported/Alien.png-fee4b767f777ede39aaff83242517455.ctex"
+path="res://.godot/imported/Alien.png-6b350fdf687d98c54de4b27410d6c228.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Alien.png"
-dest_files=["res://.godot/imported/Alien.png-fee4b767f777ede39aaff83242517455.ctex"]
+source_file="res://Sprites/Alien.png"
+dest_files=["res://.godot/imported/Alien.png-6b350fdf687d98c54de4b27410d6c228.ctex"]
 
 [params]
 

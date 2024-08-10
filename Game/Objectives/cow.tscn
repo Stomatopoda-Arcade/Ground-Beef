@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c5gkfnhftomo"]
 
-[ext_resource type="Script" path="res://cow.gd" id="1_2r05n"]
-[ext_resource type="Texture2D" uid="uid://dghajy8ios7ia" path="res://sprites/cow.png" id="1_hf27n"]
+[ext_resource type="Script" path="res://Game/Objectives/cow.gd" id="1_2r05n"]
+[ext_resource type="Texture2D" uid="uid://dghajy8ios7ia" path="res://Sprites/Cow.png" id="1_hf27n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdfcr"]
 size = Vector2(32, 24)
