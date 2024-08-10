@@ -22,22 +22,27 @@ func _ready():
 		$JetSprite.flip_h = true
 
 	if starting_difficulty == DIFFICULTY.EASY:
-		$Timer.autostart = false
+		pass
 	elif starting_difficulty == DIFFICULTY.MEDIUM:
 		pass
 	elif starting_difficulty == DIFFICULTY.HARD:
 		$Timer.wait_time = 2
-		$Timer.autostart = true
+		$Timer.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	position += direction*jet_velocity*delta
+	var collision = move_and_collide(direction*jet_velocity*delta)
+	check_collision(collision)
 
+func check_collision(collision):
+	if collision and collision.get_collider().is_in_group("player"):
+		collision.get_collider().damage()
+		queue_free()
 
 func _on_timer_timeout():
 	var projectile_instance = ProjectileResource.instantiate()
-	projectile_instance.velocity = projectile_velocity
+	projectile_instance.projectile_velocity = projectile_velocity
 	projectile_instance.angle = projectile_angle
 	self.add_child(projectile_instance)
 	self.move_child(projectile_instance,0)
