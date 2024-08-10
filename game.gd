@@ -1,10 +1,12 @@
 extends Node2D
 
 signal game_over(score)
-signal level_complete(score)
+signal level_complete(score, scored_objects)
 
 var score = 0
 var lives = 3
+var scored_objects = []
+
 @export var level = 1
 @export var abducted_score = 100
 @export var jet_score = 50
@@ -42,7 +44,9 @@ func check_for_enemies():
 		level_complete.emit(score)
 
 func handle_abducted(groups):
-	score = score + abducted_score
+	if groups.has("cow"):
+		score = score + abducted_score
+		scored_objects.append("cow")
 	$PlayerCharacter.set_score(score)
 	
 func handle_destroyed(groups):
@@ -50,8 +54,10 @@ func handle_destroyed(groups):
 		score = score - abducted_score
 	elif groups.has("tank"):
 		score = score + tank_score
+		scored_objects.append("tank")
 	elif groups.has("jet"):
 		score = score + jet_score
+		scored_objects.append("jet")
 	$PlayerCharacter.set_score(score)
 
 

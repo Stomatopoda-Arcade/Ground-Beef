@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://lxg8typd2pmx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o5isb"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_ymqnr"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_07onx"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_ylrte"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_3mmx7"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_jkw8x"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_wltm5"]
+font_size = 25
+
+[node name="LevelScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 1155.0
+offset_bottom = 654.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="LevelLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level X Complete"
+label_settings = SubResource("LabelSettings_o5isb")
+horizontal_alignment = 1
+
+[node name="AbductedContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AbductedLabel" type="Label" parent="CenterContainer/VBoxContainer/AbductedContainer"]
+layout_mode = 2
+text = "Abducted:"
+label_settings = SubResource("LabelSettings_ymqnr")
+
+[node name="HFlowContainer" type="HFlowContainer" parent="CenterContainer/VBoxContainer/AbductedContainer"]
+layout_mode = 2
+
+[node name="DestroyedContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="DestroyedLabel" type="Label" parent="CenterContainer/VBoxContainer/DestroyedContainer"]
+layout_mode = 2
+text = "Destroyed:"
+label_settings = SubResource("LabelSettings_07onx")
+
+[node name="HFlowContainer" type="HFlowContainer" parent="CenterContainer/VBoxContainer/DestroyedContainer"]
+layout_mode = 2
+
+[node name="TimeContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TimeLabel" type="Label" parent="CenterContainer/VBoxContainer/TimeContainer"]
+layout_mode = 2
+text = "Time Bonus:
+"
+label_settings = SubResource("LabelSettings_ylrte")
+
+[node name="TimeValue" type="Label" parent="CenterContainer/VBoxContainer/TimeContainer"]
+layout_mode = 2
+text = "120
+"
+label_settings = SubResource("LabelSettings_3mmx7")
+
+[node name="TotalScoreContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="CenterContainer/VBoxContainer/TotalScoreContainer"]
+layout_mode = 2
+text = "Total Score:"
+label_settings = SubResource("LabelSettings_jkw8x")
+
+[node name="ScoreValue" type="Label" parent="CenterContainer/VBoxContainer/TotalScoreContainer"]
+layout_mode = 2
+text = "75000"
+label_settings = SubResource("LabelSettings_wltm5")
