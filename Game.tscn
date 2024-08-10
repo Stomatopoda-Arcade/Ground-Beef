@@ -46,8 +46,10 @@ starting_difficulty = 0
 autostart = true
 
 [node name="ScreenWrap" parent="." instance=ExtResource("8_ag8lx")]
+visible = false
 
 [node name="Sky" parent="." instance=ExtResource("9_dbbtu")]
+position = Vector2(-6, -102)
 
 [connection signal="damaged" from="PlayerCharacter" to="." method="_on_player_character_damaged"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
