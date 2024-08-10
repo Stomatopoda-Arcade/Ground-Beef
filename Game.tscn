@@ -40,7 +40,7 @@ starting_facing = 1
 
 [node name="Jet" parent="." instance=ExtResource("7_tb6x7")]
 position = Vector2(-311, 69)
-starting_difficulty = 0
+jet_velocity = 200
 
 [node name="GameTimer" type="Timer" parent="."]
 autostart = true
@@ -51,6 +51,11 @@ visible = false
 [node name="Sky" parent="." instance=ExtResource("9_dbbtu")]
 position = Vector2(-6, -102)
 
+[node name="PlayerResetTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
 [connection signal="damaged" from="PlayerCharacter" to="." method="_on_player_character_damaged"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
 [connection signal="body_exited" from="ScreenWrap" to="." method="_on_screen_wrap_body_exited"]
+[connection signal="timeout" from="PlayerResetTimer" to="." method="_on_player_reset_timer_timeout"]

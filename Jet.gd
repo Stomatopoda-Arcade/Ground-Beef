@@ -22,12 +22,12 @@ func _ready():
 		$JetSprite.flip_h = true
 
 	if starting_difficulty == DIFFICULTY.EASY:
-		$Timer.autostart = false
+		pass
 	elif starting_difficulty == DIFFICULTY.MEDIUM:
 		pass
 	elif starting_difficulty == DIFFICULTY.HARD:
 		$Timer.wait_time = 2
-		$Timer.autostart = true
+		$Timer.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,7 +42,7 @@ func check_collision(collision):
 
 func _on_timer_timeout():
 	var projectile_instance = ProjectileResource.instantiate()
-	projectile_instance.velocity = projectile_velocity
+	projectile_instance.projectile_velocity = projectile_velocity
 	projectile_instance.angle = projectile_angle
 	self.add_child(projectile_instance)
 	self.move_child(projectile_instance,0)

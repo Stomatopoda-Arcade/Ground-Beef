@@ -62,5 +62,6 @@ func damage():
 
 func disable_player(disabled):
 	player_disabled = disabled
-	$CollisionShape2D.disabled = disabled
+	collision_layer = 4 if disabled else 3
 	$Sprite2D.visible = !disabled
+
