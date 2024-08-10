@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://l0esk30pv4e0"]
 
-[ext_resource type="Script" path="res://PlayerCharacter.gd" id="1_to5h2"]
-[ext_resource type="Texture2D" uid="uid://kunac06ktryy" path="res://sprites/Alien.png" id="2_xc5fr"]
-[ext_resource type="PackedScene" uid="uid://b042l2o7i5kic" path="res://beam.tscn" id="3_qrac7"]
-[ext_resource type="PackedScene" uid="uid://q4miwk28xnvi" path="res://hud.tscn" id="4_aql4b"]
+[ext_resource type="Script" path="res://Game/Player/PlayerCharacter.gd" id="1_to5h2"]
+[ext_resource type="Texture2D" uid="uid://kunac06ktryy" path="res://Sprites/Alien.png" id="2_xc5fr"]
+[ext_resource type="PackedScene" uid="uid://b042l2o7i5kic" path="res://Game/Player/beam.tscn" id="3_qrac7"]
+[ext_resource type="PackedScene" uid="uid://q4miwk28xnvi" path="res://Game/Player/hud.tscn" id="4_aql4b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_drmgs"]
 size = Vector2(48, 33)

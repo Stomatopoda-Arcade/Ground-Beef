@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cnmqwu6p52o14"]
 
-[ext_resource type="Script" path="res://Jet.gd" id="1_mr4i3"]
-[ext_resource type="Texture2D" uid="uid://dtmsfc2ucxb20" path="res://sprites/FighterJet.png" id="2_a2awc"]
+[ext_resource type="Script" path="res://Game/Enemies/Jet.gd" id="1_mr4i3"]
+[ext_resource type="Texture2D" uid="uid://dtmsfc2ucxb20" path="res://Sprites/FighterJet.png" id="2_a2awc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jka5l"]
 size = Vector2(40, 25.5)

@@ -1,5 +1,5 @@
 extends CharacterBody2D
-const ProjectileResource = preload("res://projectile.tscn")
+const ProjectileResource = preload("res://Game/Enemies/projectile.tscn")
 enum JET_FACING {JET_LEFT,JET_RIGHT}
 enum DIFFICULTY {EASY,MEDIUM,HARD}
 

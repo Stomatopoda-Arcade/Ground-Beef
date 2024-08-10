@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://q4miwk28xnvi"]
 
-[ext_resource type="Texture2D" uid="uid://kunac06ktryy" path="res://sprites/Alien.png" id="1_1b8ww"]
+[ext_resource type="Texture2D" uid="uid://kunac06ktryy" path="res://Sprites/Alien.png" id="1_1b8ww"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2plya"]
 font_size = 30

@@ -1,5 +1,5 @@
 extends StaticBody2D
-const ProjectileResource = preload("res://projectile.tscn")
+const ProjectileResource = preload("res://Game/Enemies/projectile.tscn")
 enum TANK_FACING {TANK45,TANK90,TANK135}
 enum DIFFICULTY {EASY,MEDIUM,HARD}
 

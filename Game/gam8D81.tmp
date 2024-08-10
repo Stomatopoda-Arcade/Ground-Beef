@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://cl47tmv4n07ds"]
+
+[ext_resource type="Script" path="res://Game/game.gd" id="1_7f8eh"]
+[ext_resource type="PackedScene" uid="uid://ccd6m3yl13q3p" path="res://Game/World/ground.tscn" id="2_py3jo"]
+[ext_resource type="PackedScene" uid="uid://c5gkfnhftomo" path="res://Game/Objectives/cow.tscn" id="3_0hfq6"]
+[ext_resource type="PackedScene" uid="uid://l0esk30pv4e0" path="res://Game/Player/player_character.tscn" id="4_0ayap"]
+[ext_resource type="PackedScene" uid="uid://c1hfb0b85xe1e" path="res://Game/World/underground.tscn" id="5_u8w03"]
+[ext_resource type="PackedScene" uid="uid://dscavk7m7uj70" path="res://Game/Enemies/tank.tscn" id="6_tmhgm"]
+[ext_resource type="PackedScene" uid="uid://cnmqwu6p52o14" path="res://Game/Enemies/jet.tscn" id="7_tb6x7"]
+[ext_resource type="PackedScene" uid="uid://c1l35kh46alei" path="res://Game/World/screen_wrap.tscn" id="8_ag8lx"]
+[ext_resource type="PackedScene" uid="uid://cyrqerg3dunis" path="res://Game/World/sky.tscn" id="9_dbbtu"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_7f8eh")
+
+[node name="Ground" parent="." instance=ExtResource("2_py3jo")]
+position = Vector2(123, 305)
+
+[node name="Cow" parent="." instance=ExtResource("3_0hfq6")]
+position = Vector2(-85, 283)
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("4_0ayap")]
+position = Vector2(7, 84)
+
+[node name="Cow2" parent="." instance=ExtResource("3_0hfq6")]
+position = Vector2(21, 282)
+
+[node name="Cow3" parent="." instance=ExtResource("3_0hfq6")]
+position = Vector2(-31, 283)
+
+[node name="Underground" parent="." instance=ExtResource("5_u8w03")]
+position = Vector2(123, 305)
+
+[node name="Tank" parent="." instance=ExtResource("6_tmhgm")]
+position = Vector2(-185, 279)
+
+[node name="Tank2" parent="." instance=ExtResource("6_tmhgm")]
+position = Vector2(-279, 280)
+starting_facing = 1
+
+[node name="Jet" parent="." instance=ExtResource("7_tb6x7")]
+position = Vector2(-311, 69)
+jet_velocity = 200
+
+[node name="GameTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="ScreenWrap" parent="." instance=ExtResource("8_ag8lx")]
+visible = false
+
+[node name="Sky" parent="." instance=ExtResource("9_dbbtu")]
+position = Vector2(-6, -102)
+
+[node name="PlayerResetTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="damaged" from="PlayerCharacter" to="." method="_on_player_character_damaged"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
+[connection signal="body_exited" from="ScreenWrap" to="." method="_on_screen_wrap_body_exited"]
+[connection signal="timeout" from="PlayerResetTimer" to="." method="_on_player_reset_timer_timeout"]
