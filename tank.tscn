@@ -10,7 +10,7 @@ size = Vector2(33, 19)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ekmg"]
 size = Vector2(20, 14)
 
-[node name="Tank" type="StaticBody2D" groups=["destroyable", "hazard", "tank"]]
+[node name="Tank" type="StaticBody2D" groups=["destroyable", "enemy", "hazard", "tank"]]
 script = ExtResource("1_7w7jl")
 starting_difficulty = 2
 

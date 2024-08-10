@@ -1,6 +1,7 @@
 extends Node2D
 
 signal game_over(score)
+signal level_complete(score)
 
 var score = 0
 var lives = 3
@@ -20,7 +21,25 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	#checking for win condition
+	check_for_enemies()
 	pass
+	
+
+func check_for_enemies():
+	var more_enemies = false
+	var children = self.get_children()
+	
+	for child in children:
+		# check if any enemies left
+		if child.is_in_group("enemy"):
+			# if there is at least 1 enemy return
+			more_enemies = true
+			return
+			
+	# if no more enemies then level completed
+	if !more_enemies:
+		level_complete.emit(score)
 
 func handle_abducted(groups):
 	score = score + abducted_score
@@ -40,6 +59,8 @@ func _on_game_timer_timeout():
 	if time_remaining > 0:
 		time_remaining -= 1
 		$PlayerCharacter.set_timer(time_remaining)
+	else:
+		level_complete.emit(score)
 
 func _on_screen_wrap_body_exited(body):
 	if body.is_in_group("projectile"):

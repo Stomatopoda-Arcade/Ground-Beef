@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jka5l"]
 size = Vector2(40, 25.5)
 
-[node name="Jet" type="CharacterBody2D" groups=["destroyable", "hazard", "jet"]]
+[node name="Jet" type="CharacterBody2D" groups=["destroyable", "enemy", "hazard", "jet"]]
 script = ExtResource("1_mr4i3")
 starting_difficulty = 2
 
