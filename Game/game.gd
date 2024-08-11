@@ -1,13 +1,8 @@
 extends Node2D
 
-signal game_over(score)
-signal level_complete(score, scored_objects)
+signal game_over()
+signal level_complete()
 
-var score = 0
-var lives = 3
-var scored_objects = []
-
-@export var level = 1
 @export var abducted_score = 100
 @export var jet_score = 50
 @export var tank_score = 25
@@ -41,24 +36,24 @@ func check_for_enemies():
 			
 	# if no more enemies then level completed
 	if !more_enemies:
-		level_complete.emit(score)
+		level_complete.emit()
 
 func handle_abducted(groups):
 	if groups.has("cow"):
-		score = score + abducted_score
-		scored_objects.append("cow")
-	$PlayerCharacter.set_score(score)
+		Global.score += abducted_score
+		Global.scored_objects.append("cow")
+	$PlayerCharacter.set_score(Global.score)
 	
 func handle_destroyed(groups):
 	if groups.has("cow"):
-		score = score - abducted_score
+		Global.score -= abducted_score
 	elif groups.has("tank"):
-		score = score + tank_score
-		scored_objects.append("tank")
+		Global.score += tank_score
+		Global.scored_objects.append("tank")
 	elif groups.has("jet"):
-		score = score + jet_score
-		scored_objects.append("jet")
-	$PlayerCharacter.set_score(score)
+		Global.score += jet_score
+		Global.scored_objects.append("jet")
+	$PlayerCharacter.set_score(Global.score)
 
 
 func _on_game_timer_timeout():
@@ -66,7 +61,7 @@ func _on_game_timer_timeout():
 		time_remaining -= 1
 		$PlayerCharacter.set_timer(time_remaining)
 	else:
-		level_complete.emit(score)
+		level_complete.emit()
 
 func _on_screen_wrap_body_exited(body):
 	if body.is_in_group("projectile"):
@@ -86,18 +81,18 @@ func _on_screen_wrap_body_exited(body):
 
 func _on_player_character_damaged():
 	if !$PlayerCharacter.player_disabled:
-		lives -= 1
-		$PlayerCharacter.set_lives(lives)
+		Global.lives -= 1
+		$PlayerCharacter.set_lives(Global.lives)
 		$PlayerCharacter.disable_player(true)
 		$PlayerResetTimer.start()
 		$GameTimer.stop()
 
 
 func _on_player_reset_timer_timeout():
-	if lives > 0:
+	if Global.lives > 0:
 		$PlayerCharacter.position = Vector2(0,0)
 		$PlayerCharacter.disable_player(false)
 		$GameTimer.start()
 	else:
 		$GameTimer.stop()
-		game_over.emit(score)
+		game_over.emit()
