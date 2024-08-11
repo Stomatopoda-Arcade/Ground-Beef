@@ -1,5 +1,5 @@
 extends CharacterBody2D
-const ProjectileResource = preload("res://Game/Enemies/projectile.tscn")
+
 enum JET_FACING {JET_LEFT,JET_RIGHT}
 enum DIFFICULTY {EASY,MEDIUM,HARD}
 
@@ -9,6 +9,9 @@ enum DIFFICULTY {EASY,MEDIUM,HARD}
 @export var starting_difficulty = DIFFICULTY.EASY
 var projectile_angle = 0
 var direction = Vector2(1,0)
+
+signal fire_projectile(projectile_angle,projectile_velocity,projectile_position)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,8 +44,4 @@ func check_collision(collision):
 		queue_free()
 
 func _on_timer_timeout():
-	var projectile_instance = ProjectileResource.instantiate()
-	projectile_instance.projectile_velocity = projectile_velocity
-	projectile_instance.angle = projectile_angle
-	self.add_child(projectile_instance)
-	self.move_child(projectile_instance,0)
+	fire_projectile.emit(projectile_angle,projectile_velocity,position)

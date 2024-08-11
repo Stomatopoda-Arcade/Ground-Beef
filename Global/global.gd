@@ -4,6 +4,7 @@ var score = 0
 var lives = 3
 var scored_objects = []
 var level = 1
+var time_remaining = 180
 var high_scores = [
 	{"initial": "LOH","score": 7500},
 	{"initial": "PGH","score": 7000},

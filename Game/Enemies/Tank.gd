@@ -8,6 +8,8 @@ enum DIFFICULTY {EASY,MEDIUM,HARD}
 @export var starting_difficulty = DIFFICULTY.EASY
 var projectile_angle = 315
 
+signal fire_projectile(projectile_angle,projectile_velocity,projectile_position)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if starting_facing == TANK_FACING.TANK45:
@@ -40,9 +42,6 @@ func _process(delta):
 
 
 func _on_timer_timeout():
-	var projectile_instance = ProjectileResource.instantiate()
-	projectile_instance.projectile_velocity = projectile_velocity
-	projectile_instance.angle = projectile_angle
-	self.add_child(projectile_instance)
-	self.move_child(projectile_instance,0)
+	fire_projectile.emit(projectile_angle,projectile_velocity,position)
+	
 	

@@ -1,19 +1,20 @@
 extends Node2D
 
+const ProjectileResource = preload("res://Game/Enemies/projectile.tscn")
+
 signal game_over()
 signal level_complete()
 
 @export var abducted_score = 100
 @export var jet_score = 50
 @export var tank_score = 25
-@export var time_remaining = 180
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$PlayerCharacter/Beam.object_abducted.connect(handle_abducted)
 	$PlayerCharacter/Beam.object_destroyed.connect(handle_destroyed)
-	$PlayerCharacter.set_timer(time_remaining)
+	$PlayerCharacter.set_timer(Global.time_remaining)
+	add_projectile_handlers()
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,6 +38,13 @@ func check_for_enemies():
 	# if no more enemies then level completed
 	if !more_enemies:
 		level_complete.emit()
+		
+
+func add_projectile_handlers():
+	var children = self.get_children()
+	for child in children:
+		if child.is_in_group("shoots"):
+			child.fire_projectile.connect(_on_fire_projectile)
 
 func handle_abducted(groups):
 	if groups.has("cow"):
@@ -57,9 +65,9 @@ func handle_destroyed(groups):
 
 
 func _on_game_timer_timeout():
-	if time_remaining > 0:
-		time_remaining -= 1
-		$PlayerCharacter.set_timer(time_remaining)
+	if Global.time_remaining > 0:
+		Global.time_remaining -= 1
+		$PlayerCharacter.set_timer(Global.time_remaining)
 	else:
 		level_complete.emit()
 
@@ -85,14 +93,20 @@ func _on_player_character_damaged():
 		$PlayerCharacter.set_lives(Global.lives)
 		$PlayerCharacter.disable_player(true)
 		$PlayerResetTimer.start()
-		$GameTimer.stop()
 
 
 func _on_player_reset_timer_timeout():
 	if Global.lives > 0:
 		$PlayerCharacter.position = Vector2(0,0)
 		$PlayerCharacter.disable_player(false)
-		$GameTimer.start()
 	else:
 		$GameTimer.stop()
 		game_over.emit()
+		
+func _on_fire_projectile(projectile_angle, projectile_velocity, projectile_position):
+	var projectile_instance = ProjectileResource.instantiate()
+	projectile_instance.projectile_velocity = projectile_velocity
+	projectile_instance.angle = projectile_angle
+	projectile_instance.position = projectile_position
+	self.add_child(projectile_instance)
+	self.move_child(projectile_instance,0)
