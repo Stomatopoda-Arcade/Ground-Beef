@@ -45,6 +45,12 @@ func add_projectile_handlers():
 	for child in children:
 		if child.is_in_group("shoots"):
 			child.fire_projectile.connect(_on_fire_projectile)
+			
+func clear_projectiles():
+	var children = self.get_children()
+	for child in children:
+		if child.is_in_group("projectile"):
+			child.queue_free()
 
 func handle_abducted(groups):
 	if groups.has("cow"):
@@ -93,12 +99,18 @@ func _on_player_character_damaged():
 		$PlayerCharacter.set_lives(Global.lives)
 		$PlayerCharacter.disable_player(true)
 		$PlayerResetTimer.start()
+		$GameTimer.stop()
 
 
 func _on_player_reset_timer_timeout():
 	if Global.lives > 0:
+		# pause scene clear projectiles and reposition player
+		get_tree().paused = true
+		clear_projectiles()
 		$PlayerCharacter.position = Vector2(0,0)
 		$PlayerCharacter.disable_player(false)
+		get_tree().paused = false
+		$GameTimer.start()
 	else:
 		$GameTimer.stop()
 		game_over.emit()
