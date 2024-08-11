@@ -41,7 +41,7 @@ func set_score(value):
 func set_lives(value):
 	if value == 3:
 		$Camera2D/HUD/MarginContainer/HBoxContainer/LeftContainer/LifeContainer/Life1.visible = true
-		$CCamera2D/HUD/MarginContainer/HBoxContainer/LeftContainer/LifeContainer/Life2.visible = true
+		$Camera2D/HUD/MarginContainer/HBoxContainer/LeftContainer/LifeContainer/Life2.visible = true
 	if value == 2:
 		$Camera2D/HUD/MarginContainer/HBoxContainer/LeftContainer/LifeContainer/Life1.visible = true
 		$Camera2D/HUD/MarginContainer/HBoxContainer/LeftContainer/LifeContainer/Life2.visible = false

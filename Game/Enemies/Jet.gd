@@ -12,7 +12,6 @@ var direction = Vector2(1,0)
 
 signal fire_projectile(projectile_angle,projectile_velocity,projectile_position)
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if starting_facing == JET_FACING.JET_RIGHT:

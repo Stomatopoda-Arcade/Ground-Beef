@@ -11,9 +11,14 @@ signal level_complete()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.scored_objects = []
+	Global.time_remaining = 180
 	$PlayerCharacter/Beam.object_abducted.connect(handle_abducted)
 	$PlayerCharacter/Beam.object_destroyed.connect(handle_destroyed)
 	$PlayerCharacter.set_timer(Global.time_remaining)
+	$PlayerCharacter.set_lives(Global.lives)
+	$PlayerCharacter.set_score(Global.score)
+	$GameTimer.start()
 	add_projectile_handlers()
 	pass
 
