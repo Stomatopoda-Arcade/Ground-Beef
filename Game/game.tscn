@@ -40,10 +40,9 @@ starting_facing = 1
 
 [node name="Jet" parent="." instance=ExtResource("7_tb6x7")]
 position = Vector2(-311, 69)
-jet_velocity = 200
+jet_velocity = 150
 
 [node name="GameTimer" type="Timer" parent="."]
-autostart = true
 
 [node name="ScreenWrap" parent="." instance=ExtResource("8_ag8lx")]
 visible = false

@@ -1,3 +1,37 @@
-[gd_scene format=3 uid="uid://b7qkugkrt4d73"]
+[gd_scene load_steps=6 format=3 uid="uid://b7qkugkrt4d73"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_tq27p"]
+[ext_resource type="PackedScene" uid="uid://6jt8elgqgiai" path="res://UserInterface/title_screen.tscn" id="2_cubwg"]
+[ext_resource type="PackedScene" uid="uid://1o131e415yjy" path="res://UserInterface/high_score_screen.tscn" id="3_uia72"]
+[ext_resource type="PackedScene" uid="uid://lxg8typd2pmx" path="res://UserInterface/level_screen.tscn" id="4_derwr"]
+[ext_resource type="PackedScene" uid="uid://bdpqqdtb8xv6g" path="res://UserInterface/game_over_screen.tscn" id="5_l8g0j"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_tq27p")
+
+[node name="TitleSwitchTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="GameOverTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="LevelCompleteTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="TitleScreen" parent="." instance=ExtResource("2_cubwg")]
+visible = false
+
+[node name="HighScoreScreen" parent="." instance=ExtResource("3_uia72")]
+visible = false
+
+[node name="LevelScreen" parent="." instance=ExtResource("4_derwr")]
+visible = false
+
+[node name="GameOverScreen" parent="." instance=ExtResource("5_l8g0j")]
+visible = false
+
+[connection signal="timeout" from="TitleSwitchTimer" to="." method="_on_title_switch_timer_timeout"]
+[connection signal="timeout" from="GameOverTimer" to="." method="_on_game_over_timer_timeout"]
+[connection signal="timeout" from="LevelCompleteTimer" to="." method="_on_level_complete_timer_timeout"]
