@@ -1,11 +1,9 @@
 extends StaticBody2D
-const ProjectileResource = preload("res://Game/Enemies/projectile.tscn")
 enum TANK_FACING {TANK45,TANK90,TANK135}
-enum DIFFICULTY {EASY,MEDIUM,HARD}
 
 @export var projectile_velocity = 250 
 @export var starting_facing = TANK_FACING.TANK45
-@export var starting_difficulty = DIFFICULTY.EASY
+@export var starting_difficulty = Global.DIFFICULTY.EASY
 var projectile_angle = 315
 
 signal fire_projectile(projectile_angle,projectile_velocity,projectile_position)
@@ -26,11 +24,11 @@ func _ready():
 		$Tank45.flip_h = true
 		projectile_angle = 225
 	
-	if starting_difficulty == DIFFICULTY.EASY:
+	if starting_difficulty == Global.DIFFICULTY.EASY:
 		$Timer.wait_time = 3
-	elif starting_difficulty == DIFFICULTY.MEDIUM:
+	elif starting_difficulty == Global.DIFFICULTY.MEDIUM:
 		$Timer.wait_time = 2
-	elif starting_difficulty == DIFFICULTY.HARD:
+	elif starting_difficulty == Global.DIFFICULTY.HARD:
 		$Timer.wait_time = 1
 		
 

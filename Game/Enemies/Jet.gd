@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
 enum JET_FACING {JET_LEFT,JET_RIGHT}
-enum DIFFICULTY {EASY,MEDIUM,HARD}
+
 
 @export var projectile_velocity = 250 
 @export var jet_velocity = 50
 @export var starting_facing = JET_FACING.JET_RIGHT
-@export var starting_difficulty = DIFFICULTY.EASY
+@export var starting_difficulty = Global.DIFFICULTY.EASY
 var projectile_angle = 0
 var direction = Vector2(1,0)
 
@@ -24,11 +24,11 @@ func _ready():
 		projectile_angle = 180
 		$JetSprite.flip_h = true
 
-	if starting_difficulty == DIFFICULTY.EASY:
+	if starting_difficulty == Global.DIFFICULTY.EASY:
 		pass
-	elif starting_difficulty == DIFFICULTY.MEDIUM:
+	elif starting_difficulty == Global.DIFFICULTY.MEDIUM:
 		pass
-	elif starting_difficulty == DIFFICULTY.HARD:
+	elif starting_difficulty == Global.DIFFICULTY.HARD:
 		$Timer.wait_time = 2
 		$Timer.start()
 
