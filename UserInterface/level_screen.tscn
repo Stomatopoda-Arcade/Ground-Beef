@@ -1,10 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://lxg8typd2pmx"]
+[gd_scene load_steps=13 format=3 uid="uid://lxg8typd2pmx"]
+
+[ext_resource type="Texture2D" uid="uid://dghajy8ios7ia" path="res://Sprites/Cow.png" id="1_08xeh"]
+[ext_resource type="Script" path="res://UserInterface/level_screen.gd" id="1_s6bhs"]
+[ext_resource type="Texture2D" uid="uid://dy8si7wu0kieg" path="res://Sprites/Tank-45.png" id="2_supmo"]
+[ext_resource type="Texture2D" uid="uid://dtmsfc2ucxb20" path="res://Sprites/FighterJet.png" id="3_53iqs"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_o5isb"]
 font_size = 50
 
 [sub_resource type="LabelSettings" id="LabelSettings_ymqnr"]
 font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_t3hwd"]
+font_size = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_07onx"]
 font_size = 25
@@ -28,6 +36,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_s6bhs")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 0
@@ -46,17 +55,32 @@ horizontal_alignment = 1
 
 [node name="AbductedContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 25
 
 [node name="AbductedLabel" type="Label" parent="CenterContainer/VBoxContainer/AbductedContainer"]
 layout_mode = 2
 text = "Abducted:"
 label_settings = SubResource("LabelSettings_ymqnr")
 
-[node name="HFlowContainer" type="HFlowContainer" parent="CenterContainer/VBoxContainer/AbductedContainer"]
+[node name="CowsAbductedContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/AbductedContainer"]
 layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="CowTexture" type="TextureRect" parent="CenterContainer/VBoxContainer/AbductedContainer/CowsAbductedContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_08xeh")
+expand_mode = 3
+
+[node name="CowsAbductedValue" type="Label" parent="CenterContainer/VBoxContainer/AbductedContainer/CowsAbductedContainer"]
+layout_mode = 2
+text = "x20"
+label_settings = SubResource("LabelSettings_t3hwd")
+vertical_alignment = 1
 
 [node name="DestroyedContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="DestroyedLabel" type="Label" parent="CenterContainer/VBoxContainer/DestroyedContainer"]
 layout_mode = 2
@@ -65,6 +89,38 @@ label_settings = SubResource("LabelSettings_07onx")
 
 [node name="HFlowContainer" type="HFlowContainer" parent="CenterContainer/VBoxContainer/DestroyedContainer"]
 layout_mode = 2
+
+[node name="TanksDestroyedContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/DestroyedContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TankTexture" type="TextureRect" parent="CenterContainer/VBoxContainer/DestroyedContainer/TanksDestroyedContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_supmo")
+expand_mode = 3
+
+[node name="TankDestroyedValue" type="Label" parent="CenterContainer/VBoxContainer/DestroyedContainer/TanksDestroyedContainer"]
+layout_mode = 2
+text = "x20"
+label_settings = SubResource("LabelSettings_t3hwd")
+vertical_alignment = 1
+
+[node name="JetsDestroyedContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/DestroyedContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="JetTexture" type="TextureRect" parent="CenterContainer/VBoxContainer/DestroyedContainer/JetsDestroyedContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_53iqs")
+expand_mode = 3
+
+[node name="JetsDestroyedValue" type="Label" parent="CenterContainer/VBoxContainer/DestroyedContainer/JetsDestroyedContainer"]
+layout_mode = 2
+text = "x20"
+label_settings = SubResource("LabelSettings_t3hwd")
+vertical_alignment = 1
 
 [node name="TimeContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
