@@ -65,8 +65,10 @@ func _on_title_switch_timer_timeout():
 
 
 func _on_game_over_timer_timeout():
+	$HighScoreScreen.check_high_score()
 	init_game()
 
 
 func _on_level_complete_timer_timeout():
+	Global.level += 1
 	start_game()

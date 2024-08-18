@@ -80,15 +80,12 @@ vertical_alignment = 1
 
 [node name="DestroyedContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 25
 
 [node name="DestroyedLabel" type="Label" parent="CenterContainer/VBoxContainer/DestroyedContainer"]
 layout_mode = 2
 text = "Destroyed:"
 label_settings = SubResource("LabelSettings_07onx")
-
-[node name="HFlowContainer" type="HFlowContainer" parent="CenterContainer/VBoxContainer/DestroyedContainer"]
-layout_mode = 2
 
 [node name="TanksDestroyedContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/DestroyedContainer"]
 layout_mode = 2
@@ -124,6 +121,7 @@ vertical_alignment = 1
 
 [node name="TimeContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 25
 
 [node name="TimeLabel" type="Label" parent="CenterContainer/VBoxContainer/TimeContainer"]
 layout_mode = 2
@@ -139,6 +137,7 @@ label_settings = SubResource("LabelSettings_3mmx7")
 
 [node name="TotalScoreContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 25
 
 [node name="ScoreLabel" type="Label" parent="CenterContainer/VBoxContainer/TotalScoreContainer"]
 layout_mode = 2
