@@ -41,6 +41,7 @@ func init_game():
 
 func _on_level_complete():
 	game_instance.queue_free()
+	Global.score += Global.time_remaining
 	$LevelScreen.set_score()
 	$LevelScreen.visible = true
 	$LevelCompleteTimer.start()
