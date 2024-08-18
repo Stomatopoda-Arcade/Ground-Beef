@@ -13,6 +13,7 @@ func set_score():
 		elif scorable == "jet":
 			jets+=1
 	
+	$CenterContainer/VBoxContainer/LevelLabel.text = "Level %s Complete"%Global.level
 	$CenterContainer/VBoxContainer/AbductedContainer/CowsAbductedContainer/CowsAbductedValue.text = "x%d"%cows
 	$CenterContainer/VBoxContainer/DestroyedContainer/TanksDestroyedContainer/TankDestroyedValue.text = "x%d"%tanks
 	$CenterContainer/VBoxContainer/DestroyedContainer/JetsDestroyedContainer/JetsDestroyedValue.text = "x%d"%jets
