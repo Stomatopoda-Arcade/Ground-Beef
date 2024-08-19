@@ -16,33 +16,55 @@ script = ExtResource("1_7f8eh")
 [node name="Ground" parent="." instance=ExtResource("2_py3jo")]
 position = Vector2(123, 305)
 
-[node name="Cow" parent="." instance=ExtResource("3_0hfq6")]
-position = Vector2(-85, 283)
-
 [node name="PlayerCharacter" parent="." instance=ExtResource("4_0ayap")]
-position = Vector2(7, 84)
+position = Vector2(2, 4)
 
-[node name="Cow2" parent="." instance=ExtResource("3_0hfq6")]
-position = Vector2(21, 282)
-
-[node name="Cow3" parent="." instance=ExtResource("3_0hfq6")]
-position = Vector2(-31, 283)
-
-[node name="Underground" parent="." instance=ExtResource("5_u8w03")]
-position = Vector2(123, 305)
-
-[node name="Tank" parent="." instance=ExtResource("6_tmhgm")]
-position = Vector2(-185, 279)
+[node name="Tank1" parent="." instance=ExtResource("6_tmhgm")]
+position = Vector2(-294, 281)
+starting_facing = 1
+starting_difficulty = 0
 
 [node name="Tank2" parent="." instance=ExtResource("6_tmhgm")]
-position = Vector2(-279, 280)
+position = Vector2(-460, 282)
 starting_facing = 1
+starting_difficulty = 0
 
-[node name="Jet" parent="." instance=ExtResource("7_tb6x7")]
-position = Vector2(-311, 69)
-jet_velocity = 150
+[node name="Tank3" parent="." instance=ExtResource("6_tmhgm")]
+position = Vector2(165, 283)
 
-[node name="GameTimer" type="Timer" parent="."]
+[node name="Tank4" parent="." instance=ExtResource("6_tmhgm")]
+position = Vector2(493, 281)
+starting_facing = 2
+
+[node name="Cow1" parent="." instance=ExtResource("3_0hfq6")]
+position = Vector2(-373, 284)
+
+[node name="Cow2" parent="." instance=ExtResource("3_0hfq6")]
+position = Vector2(-414, 285)
+
+[node name="Cow4" parent="." instance=ExtResource("3_0hfq6")]
+position = Vector2(210, 283)
+
+[node name="Cow5" parent="." instance=ExtResource("3_0hfq6")]
+position = Vector2(117, 283)
+
+[node name="Cow6" parent="." instance=ExtResource("3_0hfq6")]
+position = Vector2(449, 278)
+
+[node name="Cow7" parent="." instance=ExtResource("3_0hfq6")]
+position = Vector2(536, 278)
+
+[node name="Jet1" parent="." instance=ExtResource("7_tb6x7")]
+position = Vector2(-500, -106)
+starting_difficulty = 0
+
+[node name="Jet2" parent="." instance=ExtResource("7_tb6x7")]
+position = Vector2(-746, 132)
+
+[node name="Jet3" parent="." instance=ExtResource("7_tb6x7")]
+position = Vector2(995, 66)
+jet_velocity = 75
+starting_facing = 0
 
 [node name="ScreenWrap" parent="." instance=ExtResource("8_ag8lx")]
 visible = false
@@ -50,11 +72,19 @@ visible = false
 [node name="Sky" parent="." instance=ExtResource("9_dbbtu")]
 position = Vector2(-6, -102)
 
+[node name="Underground" parent="." instance=ExtResource("5_u8w03")]
+position = Vector2(123, 305)
+
 [node name="PlayerResetTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
 
+[node name="GameTimer" type="Timer" parent="."]
+
+[node name="Cow3" parent="." instance=ExtResource("3_0hfq6")]
+position = Vector2(-334, 285)
+
 [connection signal="damaged" from="PlayerCharacter" to="." method="_on_player_character_damaged"]
-[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
 [connection signal="body_exited" from="ScreenWrap" to="." method="_on_screen_wrap_body_exited"]
 [connection signal="timeout" from="PlayerResetTimer" to="." method="_on_player_reset_timer_timeout"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
